@@ -13,3 +13,19 @@ def classify_user_input(text: str, agent_is_speaking: bool) -> str:
         return "INTERRUPT"
     else:
         return "RESPOND"
+
+
+if __name__ == "__main__":
+    tests = [
+        ("yeah", True),
+        ("ok hmm", True),
+        ("yeah wait", True),
+        ("stop", True),
+        ("yeah", False),
+        ("hello", False),
+    ]
+
+    for text, speaking in tests:
+        print(
+            f"text='{text}', speaking={speaking} → {classify_user_input(text, speaking)}"
+        )
